@@ -1,0 +1,30 @@
+
+<div>
+    <form [formGroup]="commentsForm" (ngSubmit)="addComment()"> 
+        <div>
+            <label for="username">Username: </label>
+            <input type="text" formControlName="username"/>    
+        </div>
+        <div>
+            <textarea rows="10" cols="50" formControlName="comment"></textarea>
+        </div>
+    </form>  
+</div>
+<div>
+    <button type="submit">ADD</button>
+</div>
+<div >
+    <table>
+        <tr >
+            <th>Username</th>
+            <th>Comment</th>
+            <th>Date</th>
+        </tr>
+        <tr *ngFor="let commentt of comments" >
+            <td>{{commentt.username}}</td>
+            <td>{{commentt.comment}}</td>
+            <td>{{commentt.date | dateFormat }}</td>
+        
+        </tr>
+    </table>
+</div>

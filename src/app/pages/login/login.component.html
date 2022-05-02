@@ -1,0 +1,9 @@
+<div>
+    <span><label for="email">Email:</label><input type="text" [formControl]="email"/></span>
+    <br>
+    <span><label for="password">Password:</label><input type="password" [formControl]="password"/></span>
+    <br>
+    <button (click)="login()">Login</button>
+    <button [routerLink]="'/regist'">Sign Up</button>
+
+</div>
