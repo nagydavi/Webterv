@@ -1,4 +1,27 @@
-<app-menu (selectedPage)="changePage($event)" [currentPage]="page"></app-menu>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <app-menu (selectedPage)="changePage($event)" [currentPage]="page" (onCloseSidenav)="onClose($event, sidenav)"></app-menu>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <div fxHide.gt-xs>
+        <button mat-icon-button (click)="onToggleSidenav(sidenav)">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>  
+      <div>Webshop</div>
+      <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="10px" class="menu">
+          <li><a routerLink="/login">Login</a></li>
+          <li><a routerLink="/regist">Regisztráció</a></li>
+          <li><a routerLink="/main">Főoldal</a></li>
+          <li><a routerLink="/aruk">Áruk</a></li>
+          <li><a routerLink="/kosar">Kosár</a></li>
+          <li><a routerLink="/forum">Fórum</a></li>
+        </ul>
+      </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
-
-<router-outlet></router-outlet>

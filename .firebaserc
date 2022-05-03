@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "webshop-projekt-2022": {
+      "hosting": {
+        "Szamitastechnikai-webshop": [
+          "webshop-projekt-2022"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "webshop-projekt-2022"
+  }
+}

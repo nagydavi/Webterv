@@ -1,39 +1,46 @@
-<div>
-    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-        <div formGroupName="name">
-            <div>
-                <label for="firstname">First name: </label>
-                <input type="text" formControlName="firstname"/>
+
+<div class="main_component">
+    <div class="div-flex">
+        <h1>Register an account!</h1>
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+            <div formGroupName="name" class="subForm">
+                <mat-form-field>
+                    <mat-label for="firstname">First name: </mat-label>
+                    <input matInput type="text" formControlName="firstname" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label for="firstname">Last name: </mat-label>
+                    <input matInput type="text" formControlName="lastname" />
+                </mat-form-field>
             </div>
+            <mat-form-field>
+                <mat-label for="email">Email: </mat-label>
+                <input matInput type="text" formControlName="email" />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label for="password">Password: </mat-label>
+                <input matInput type="password" formControlName="password" />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label for="repassword">Confirm password: </mat-label>
+                <input matInput type="password" formControlName="repassword" />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label for="address">Address: </mat-label>
+                <input matInput type="text" formControlName="address" />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label for="bankaccount">Bankaccount: </mat-label>
+                <input matInput type="text" formControlName="bankaccount" />
+            </mat-form-field>
             <div>
-                <label for="lastname">Last name: </label>
-                <input type="text" formControlName="lastname"/>
+                <span class="buttons">
+                    <button mat-raised-button color="primary" type="submit">Register</button>
+                </span><span class="buttons">
+                    <button mat-raised-button color="primary" [routerLink]="'/login'" >Login</button>
+                </span>
             </div>
-        </div>
-        <div>
-            <label for="email">Email: </label>
-            <input type="text" formControlName="email"/>
-        </div>
-        <div>
-            <label for="password">Password: </label>
-            <input type="password" formControlName="email"/>
-        </div>
-        <div>
-            <label for="repassword">Repassword: </label>
-            <input type="password" formControlName="repassword"/>
-        </div>
-        <div>
-            <label for="address">Address: </label>
-            <input type="text" formControlName="address"/>
-        </div>
-        <div>
-            <label for="bankaccount">Bankaccount: </label>
-            <input type="text" formControlName="bankaccount"/>
-        </div>
-        <div>
-            <button type="submit">Register</button>
-            <button [routerLink]="'/login'" >Login</button>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 

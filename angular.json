@@ -105,6 +105,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Szamitastechnikai-webshop:build:production",
+            "firebaseProject": "webshop-projekt-2022",
+            "firebaseHostingSite": "webshop-projekt-2022"
+          }
         }
       }
     }

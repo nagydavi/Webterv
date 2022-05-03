@@ -17,12 +17,15 @@ export class LoginComponent implements OnInit {
   loadingSubscription?: Subscription;
   loadingObservation?: Observable<boolean>;
 
+  loading: boolean = false;
+
   constructor(private router: Router, private loadingService: FakeLoadingService) { }
 
   ngOnInit(): void {
   }
 
   async login() {
+    this.loading=true;
     // Promise
     /* this.loadingService.loadingWithPromise(this.email.value, this.password.value).then((_: boolean) => {
       console.log('This executed second.');
@@ -53,10 +56,13 @@ export class LoginComponent implements OnInit {
         {
           next: (data: boolean) => {
             console.log(data);
+            this.router.navigateByUrl('/main');
           }, error: (error: any) => {
             console.error(error);
+            this.loading=false;
           }, complete: () => {
             console.log('finally');
+            this.loading=false;
           }
         }
       );
