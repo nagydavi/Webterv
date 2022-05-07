@@ -6,7 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DateFormatPipe implements PipeTransform {
 
   transform(value: Date, ...args: unknown[]): string {
-    let tzoffset=(new Date(value)).getTimezoneOffset()*60000
+    let tzoffset=(new Date(value)).getTimezoneOffset()*60000;
+    let minOffSet = new Date(value).getTime() - tzoffset;
     let localISOTime =(new Date(Date.now() - tzoffset)).toISOString().replace('Z','').replace('T',' ');
     return localISOTime;
   }

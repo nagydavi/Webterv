@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
+import { AuthService } from '../../shared/services/auth.service';
 import { FakeLoadingService } from '../../shared/services/fake-loading.service';
 
 @Component({
@@ -18,8 +19,9 @@ export class LoginComponent implements OnInit {
   loadingObservation?: Observable<boolean>;
 
   loading: boolean = false;
+  
 
-  constructor(private router: Router, private loadingService: FakeLoadingService) { }
+  constructor(private router: Router, private loadingService: FakeLoadingService, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -46,7 +48,7 @@ export class LoginComponent implements OnInit {
       console.error(error, 'Incorrect email or password!');
     }
     // finally
-    console.log('this is executed finally.'); */
+    console.log('this is executed finally.'); 
 
     // Observable
     // memory leak
@@ -65,7 +67,15 @@ export class LoginComponent implements OnInit {
             this.loading=false;
           }
         }
-      );
+      );*/
+      this.authService.login(this.email.value, this.password.value).then(cred => {
+        console.log(cred);
+        this.router.navigateByUrl('/main');
+        this.loading = false;
+      }).catch(error => {
+        console.error(error);
+        this.loading = false;
+      });
   }
 
   ngOnDestroy() {

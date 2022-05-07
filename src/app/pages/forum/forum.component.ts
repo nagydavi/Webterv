@@ -13,11 +13,14 @@ export class ForumComponent implements OnInit {
   comments: Array<Comment>=[];
 
   commentsForm = this.createFrom({
+    id: '',
     username: '',
-    comment:'',
-    date: new Date()
+    comment: '',
+    date: 0,
+    imageId: ''
 
   });
+  
   constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {

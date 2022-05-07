@@ -1,5 +1,5 @@
 
-<div>
+<div class="main_component">
     <form [formGroup]="commentsForm" (ngSubmit)="addComment()"> 
         <div>
             <label for="username">Username: </label>
@@ -23,7 +23,7 @@
         <tr *ngFor="let commentt of comments" >
             <td>{{commentt.username}}</td>
             <td>{{commentt.comment}}</td>
-            <td>{{commentt.date | dateFormat }}</td>
+            <td>{{commentt.date | number }}</td>
         
         </tr>
     </table>
