@@ -29,7 +29,4 @@ export class CommentService {
     return this.afs.collection<Comment>(this.collectionName).doc(id).delete();
   }
 
-  getCommentsByImageId(imageId: string) {
-    return this.afs.collection<Comment>(this.collectionName, ref => ref.where('imageId', '==', imageId).orderBy('date', 'asc')).valueChanges();
-  }
 }

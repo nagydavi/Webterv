@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../shared/services/auth.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+import { KosarService } from '../../shared/services/kosar.service';
+
 
 @Component({
   selector: 'app-kosar',
@@ -7,9 +12,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class KosarComponent implements OnInit {
 
-  constructor() { }
+  tartalom?: Observable<any>;
+
+  constructor(private db: AngularFirestore,private kosarService: KosarService,private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.tartalom = this.db.collection('Kosar').valueChanges();
   }
-
+  rendelLead(){
+  return this.kosarService.delete('test@gmail.com')
+  }
 }

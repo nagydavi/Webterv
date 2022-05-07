@@ -77,7 +77,6 @@ export class LoginComponent implements OnInit {
         this.loading = false;
       });
   }
-
   ngOnDestroy() {
     this.loadingSubscription?.unsubscribe();
   }

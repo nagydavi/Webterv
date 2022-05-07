@@ -1,1 +1,23 @@
-<p>aruk works!</p>
+<div class="content">
+    <div>
+    <div class="flex">
+    <mat-card class="mat" *ngFor="let item of tartalom | async ">
+    <mat-card-header>
+        <mat-card-title>{{item.nev}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-img src={{item.img_url}}>
+    <div></div>
+    <mat-card-content>
+        <p>
+            {{item.Leiras}}
+             </p>
+           
+    </mat-card-content>
+    <mat-card-actions>
+        <button class="cartButton " mat-raised-button color="primary" (click)="kosarba('3',item.nev)">Kosárba</button>
+    </mat-card-actions>
+    </mat-card>
+</div>
+</div>
+</div>
+

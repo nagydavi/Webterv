@@ -24,6 +24,9 @@ export class UserService {
   getById(id: string) {
     return this.afs.collection<User>(this.collectionName).doc(id).valueChanges();
   }
+  getByEmail(email: string) {
+    return this.afs.collection<User>(this.collectionName).doc(email);
+  }
 
   update(user: User) {
     return this.afs.collection<User>(this.collectionName).doc(user.id).set(user);

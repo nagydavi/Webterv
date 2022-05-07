@@ -1,30 +1,42 @@
+<div class="content">
+<div class="div-card" >
+    <mat-card fxLayout fxLayoutGap="20px">
+        <span fxFlex="1 1 50%">
+            <mat-card-actions>
+                <form [formGroup]="commentsForm" (ngSubmit)="addComment()" >
+                    <div>
+                        <mat-form-field>
+                            <mat-label for="username">Username: </mat-label>
+                            <input matInput type="text" formControlName="username" />
+                        </mat-form-field>
+                    </div>
+                    <div class="break"></div>
+                    <div>
+                        <mat-form-field>
+                            <mat-label for="comment">Comment: </mat-label>
+                            <textarea matInput rows="10" cols="50" formControlName="comment"></textarea>
+                        </mat-form-field>
+                    </div>
 
-<div class="main_component">
-    <form [formGroup]="commentsForm" (ngSubmit)="addComment()"> 
-        <div>
-            <label for="username">Username: </label>
-            <input type="text" formControlName="username"/>    
-        </div>
-        <div>
-            <textarea rows="10" cols="50" formControlName="comment"></textarea>
-        </div>
-    </form>  
-</div>
-<div>
-    <button type="submit">ADD</button>
-</div>
-<div >
-    <table>
-        <tr >
-            <th>Username</th>
-            <th>Comment</th>
-            <th>Date</th>
-        </tr>
-        <tr *ngFor="let commentt of comments" >
-            <td>{{commentt.username}}</td>
-            <td>{{commentt.comment}}</td>
-            <td>{{commentt.date | number }}</td>
-        
-        </tr>
-    </table>
+                    <div class="break"></div>
+                    <div>
+                        <button mat-raised-button color="primary" type="submit" [routerLink]="'/forum'">ADD</button>
+                    </div>
+                </form>
+            </mat-card-actions>
+        </span>
+
+    </mat-card>
+    </div>
+    <mat-card  class="mat" *ngFor="let comment of tartalom | async">
+    <div >
+        <mat-card-header>
+            <mat-card-title>{{comment.username}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{comment.comment}}</p>
+            <p>{{comment.date | dateFormat}}</p>
+        </mat-card-content>
+    </div>
+</mat-card>
 </div>

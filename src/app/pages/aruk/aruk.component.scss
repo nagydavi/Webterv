@@ -1,0 +1,31 @@
+
+.content{
+    height: 100vh;
+}
+mat-card{
+    width: 50%;
+    height: 50%;
+    align-self: center;
+}
+mat-card-header {
+    display: initial;
+}
+mat-card-title{
+    font-size: large;
+    font-weight: 300;
+}
+img{
+    display: inline-block;
+    width: 20%;
+    float: left;
+}
+button{
+    float: right;
+}
+.flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 40%;
+}
