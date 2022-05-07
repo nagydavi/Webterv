@@ -6,7 +6,8 @@ import { AuthGuard } from './shared/services/auth.guard';
 const routes: Routes = [
 
   { path: 'not-found', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) },
-  { path: 'aruk', loadChildren: () => import('./pages/aruk/aruk.module').then(m => m.ArukModule) },
+  { path: 'aruk', loadChildren: () => import('./pages/aruk/aruk.module').then(m => m.ArukModule),
+  canActivate: [AuthGuard] },
   { path: 'forum', loadChildren: () => import('./pages/forum/forum.module').then(m => m.ForumModule),
   canActivate: [AuthGuard] },
   { path: 'kosar', loadChildren: () => import('./pages/kosar/kosar.module').then(m => m.KosarModule),
