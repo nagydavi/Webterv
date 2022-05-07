@@ -24,8 +24,8 @@ export class KosarService {
     return this.afs.collection<Kosar>(this.collectionName).valueChanges();
 }
 
-  delete(email: string) {
-    return this.afs.collection<Kosar>(this.collectionName).doc(email).delete();
+  delete(id: string) {
+    return this.afs.collection<Kosar>(this.collectionName).doc(id).delete();
   }
    
 }

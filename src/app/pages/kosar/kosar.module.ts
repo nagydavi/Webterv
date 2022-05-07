@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 
 
+
 @NgModule({
   declarations: [
     KosarComponent,
@@ -20,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
+    
     
   ]
 })

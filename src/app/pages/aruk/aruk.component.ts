@@ -25,7 +25,8 @@ export class ArukComponent implements OnInit {
 
   kosarba(_id: string, _aru_nev: any){
     _id = this.db.createId();
-    this.db.collection('Kosar').doc().set({id:_id,aru_nev:_aru_nev});
+    this.db.collection('Kosar').doc(_id).set({id:_id,aru_nev:_aru_nev});
+   
   }
 
 }

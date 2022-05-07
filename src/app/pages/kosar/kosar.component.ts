@@ -19,7 +19,9 @@ export class KosarComponent implements OnInit {
   ngOnInit(): void {
     this.tartalom = this.db.collection('Kosar').valueChanges();
   }
-  rendelLead(){
-  return this.kosarService.delete('test@gmail.com')
+  rendelLead(id: string){
+  return this.kosarService.delete(id);
   }
+  
+  
 }
